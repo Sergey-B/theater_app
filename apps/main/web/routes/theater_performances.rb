@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module TheaterApp
   module Main
     class Web
-      route "theater_performances" do |r|
+      route 'theater_performances' do |r|
         r.is do
           r.get do
             r.resolve 'core.repositories.theater_performances_repo' do |theater_performances|
@@ -11,7 +13,7 @@ module TheaterApp
 
           r.post do
             r.resolve 'transactions.create_theater_performance' do |create_performance|
-              attrs = r.params.slice("id", "name", "start_date", "end_date")
+              attrs = r.params.slice('id', 'name', 'start_date', 'end_date')
 
               create_performance.call(attrs) do |m|
                 m.success do |performance|
@@ -21,11 +23,11 @@ module TheaterApp
                 end
 
                 m.failure :validate do |error|
-                  r.halt [422, {"Content-Type" => "application/json"}, [error.messages.to_json]]
+                  r.halt [422, { 'Content-Type' => 'application/json' }, [error.messages.to_json]]
                 end
 
                 m.failure do |error|
-                  r.halt [422, {"Content-Type" => "application/json"}, [error.to_json]]
+                  r.halt [422, { 'Content-Type' => 'application/json' }, [error.to_json]]
                 end
               end
             end
@@ -41,11 +43,11 @@ module TheaterApp
                 end
 
                 m.failure :validate do |error|
-                  r.halt [422, {"Content-Type" => "application/json"}, [error.messages.to_json]]
+                  r.halt [422, { 'Content-Type' => 'application/json' }, [error.messages.to_json]]
                 end
 
                 m.failure do |error|
-                  r.halt [422, {"Content-Type" => "application/json"}, [error.to_json]]
+                  r.halt [422, { 'Content-Type' => 'application/json' }, [error.to_json]]
                 end
               end
             end

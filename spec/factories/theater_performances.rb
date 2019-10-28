@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Define your factories here, e.g.
 #
 Factory.define :theater_performance do |f|

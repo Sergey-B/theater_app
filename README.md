@@ -2,7 +2,7 @@
 
 # TheaterApp
 
-Welcome! You’ve generated an app using dry-web-roda.
+TheaterApp example app built with [dry-web-roda](https://github.com/dry-rb/dry-web-roda).
 
 ## First steps
 

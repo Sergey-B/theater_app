@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 TheaterApp::Container.boot :settings, from: :system do
   before :init do
-    require "types"
+    require 'types'
   end
 
   settings do

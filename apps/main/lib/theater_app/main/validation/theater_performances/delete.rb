@@ -1,4 +1,6 @@
-require "theater_app/main/validation/schema"
+# frozen_string_literal: true
+
+require 'theater_app/main/validation/schema'
 
 module TheaterApp
   module Main

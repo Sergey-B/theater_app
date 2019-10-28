@@ -11,7 +11,9 @@ module TheaterApp
             include Import['repositories.theater_performances_repo']
 
             def call(attrs)
-              return Failure :not_found unless theater_performances_repo.by_id(attrs[:id])
+              unless theater_performances_repo.by_id(attrs[:id])
+                return Failure :not_found
+              end
 
               Success attrs
             end

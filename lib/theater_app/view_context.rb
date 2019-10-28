@@ -1,4 +1,6 @@
-require "dry/view/context"
+# frozen_string_literal: true
+
+require 'dry/view/context'
 
 module TheaterApp
   class ViewContext < Dry::View::Context

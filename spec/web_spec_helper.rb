@@ -1,13 +1,15 @@
-require_relative "db_spec_helper"
+# frozen_string_literal: true
 
-require "rack/test"
+require_relative 'db_spec_helper'
 
-Dir[SPEC_ROOT.join("support/web/*.rb").to_s].each(&method(:require))
-Dir[SPEC_ROOT.join("shared/web/*.rb").to_s].each(&method(:require))
+require 'rack/test'
 
-require SPEC_ROOT.join("../system/boot").realpath
+Dir[SPEC_ROOT.join('support/web/*.rb').to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('shared/web/*.rb').to_s].each(&method(:require))
 
-require "spec_helper"
+require SPEC_ROOT.join('../system/boot').realpath
+
+require 'spec_helper'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods, type: :request

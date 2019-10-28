@@ -1,4 +1,6 @@
-require "dry-validation"
+# frozen_string_literal: true
+
+require 'dry-validation'
 
 module TheaterApp
   module Main
@@ -6,7 +8,7 @@ module TheaterApp
       class Schema < Dry::Validation::Schema::Form
       end
 
-      def self.Schema &block
+      def self.Schema(&block)
         Dry::Validation.Schema Schema, &block
       end
     end
