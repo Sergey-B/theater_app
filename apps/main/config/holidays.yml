@@ -1,0 +1,48 @@
+---
+months:
+  1:
+  - name: Новый год # New Year's Day
+    regions: [ru]
+    mday: 1
+  - name: Новогодний праздник # 1st New Year holiday
+    regions: [ru]
+    mday: 2
+  - name: Новогодний праздник # 2nd New Year holiday
+    regions: [ru]
+    mday: 3
+  - name: Новогодний праздник # 3rd New Year holiday
+    regions: [ru]
+    mday: 4
+  - name: Новогодний праздник # 4th New Year holiday
+    regions: [ru]
+    mday: 5
+  - name: Рождество Христово # Christmas Day
+    regions: [ru]
+    mday: 7
+  2:
+  - name: День защитника Отечества # Defender of the Fatherland Day
+    regions: [ru]
+    mday: 23
+  3:
+  - name: Международный женский день # International Women's Day
+    regions: [ru]
+    mday: 8
+  5:
+  - name: Праздник Весны и Труда # Spring and Labour Day
+    regions: [ru]
+    mday: 1
+  - name: День Победы # Victory Day
+    regions: [ru]
+    mday: 9
+  6:
+  - name: День России # Russia Day
+    regions: [ru]
+    mday: 12
+  8:
+  - name: День Государственного флага Российской Федерации # National Flag Day (official working holiday)
+    regions: [ru]
+    mday: 22
+  11:
+  - name: День народного единства # Unity Day
+    regions: [ru]
+    mday: 4
