@@ -1,0 +1,15 @@
+---
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+  - 2.5.1
+before_install: gem install bundler -v 2.0.1
+services:
+  - postgresql
+env:
+  - DB=postgresql SESSION_SECRET='12345' DATABASE_URL='postgres://postgres@localhost/travis_test'
+script:
+  - "bundle exec rake db:create RACK_ENV=test"
+  - "bundle exec rake db:migrate RACK_ENV=test"
+  - "bundle exec rspec"
