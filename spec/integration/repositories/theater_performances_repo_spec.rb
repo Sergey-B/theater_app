@@ -2,9 +2,9 @@
 
 require 'web_spec_helper'
 
-RSpec.describe 'core.repositories.theater_performances_repo' do
+RSpec.describe 'repositories.theater_performances_repo' do
   subject :repository do
-    TheaterApp::Main::Container['core.repositories.theater_performances_repo']
+    TheaterApp::Main::Container['repositories.theater_performances_repo']
   end
 
   describe '#listing' do
@@ -25,13 +25,7 @@ RSpec.describe 'core.repositories.theater_performances_repo' do
       result = repository.listing
 
       expect(result).to be
-      expect(result).to including(
-        including(
-          'id' => attrs[:id],
-          'name' => attrs[:name],
-          'date' => attrs[:start_date]
-        )
-      )
+      expect(result).to include an_object_having_attributes(id: attrs[:id], name: attrs[:name])
     end
   end
 end

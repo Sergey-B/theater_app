@@ -37,9 +37,7 @@ CREATE TABLE public.theater_performances (
     id integer NOT NULL,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     name text NOT NULL,
-    start_date date NOT NULL,
-    end_date date NOT NULL,
-    schedule jsonb
+    duration daterange NOT NULL
 );
 
 

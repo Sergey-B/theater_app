@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "theater_app/main/import"
 require 'theater_app/operation'
 
 module TheaterApp
@@ -8,7 +9,7 @@ module TheaterApp
       module TheaterPerformances
         module Delete
           class FindPerformance < TheaterApp::Operation
-            include Import['repositories.theater_performances_repo']
+            include Main::Import['repositories.theater_performances_repo']
 
             def call(attrs)
               unless theater_performances_repo.by_id(attrs[:id])

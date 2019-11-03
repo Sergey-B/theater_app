@@ -25,7 +25,7 @@ module TheaterApp
       plugin :json_parser
       plugin :halt
       plugin :json,
-             classes: [Array, Hash],
+             classes: [Array, Hash, Dry::Struct],
              serializer: lambda { |o|
                o.to_json
              }

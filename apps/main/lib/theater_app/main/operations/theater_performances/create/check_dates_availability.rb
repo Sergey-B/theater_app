@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "theater_app/main/import"
 require 'theater_app/operation'
 
 module TheaterApp
@@ -8,7 +9,7 @@ module TheaterApp
       module TheaterPerformances
         module Create
           class CheckDatesAvailability < TheaterApp::Operation
-            include Import['repositories.theater_performances_repo']
+            include Main::Import['repositories.theater_performances_repo']
 
             def call(attrs)
               dates_already_booked = theater_performances_repo.exist_by_dates_from_and_to?(

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "theater_app/main/import"
 require 'theater_app/operation'
 
 module TheaterApp
@@ -8,12 +9,19 @@ module TheaterApp
       module TheaterPerformances
         module Create
           class Persist < TheaterApp::Operation
-            include Import['repositories.theater_performances_repo']
+            include Main::Import['core.persistence.rom']
 
             def call(attrs)
-              theater_performances_repo.create(attrs)
+              rom.relations[:theater_performances].insert(to_performance_attrs attrs)
 
               Success(attrs)
+            end
+
+            private
+
+            def to_performance_attrs args
+              args[:duration] = (args.delete(:start_date)..args.delete(:end_date))
+              args
             end
           end
         end

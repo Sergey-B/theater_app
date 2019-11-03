@@ -2,9 +2,9 @@
 
 require 'web_spec_helper'
 
-RSpec.describe 'core.repositories.holidays_repo' do
+RSpec.describe 'repositories.holidays_repo' do
   subject :repository do
-    TheaterApp::Main::Container['core.repositories.holidays_repo']
+    TheaterApp::Main::Container['repositories.holidays_repo']
   end
 
   describe '#by_date' do

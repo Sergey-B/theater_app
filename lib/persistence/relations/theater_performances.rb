@@ -10,14 +10,11 @@ module Persistence
       end
 
       def by_dates(date_from, date_to)
-        qualified.where do
-          Sequel.|(
-            ((start_date.qualified <= date_from.to_date) & (end_date.qualified >= date_from.to_date)),
-            ((start_date.qualified <= date_to.to_date) & (end_date.qualified >= date_to.to_date)),
-            ((start_date.qualified >= date_from.to_date) & (start_date.qualified <= date_to.to_date)),
-            ((end_date.qualified >= date_from.to_date) & (end_date.qualified <= date_to.to_date))
-          )
-        end
+        daterange = (date_from..date_to)
+
+        qualified.where {
+          Sequel.pg_range(:duration).overlaps daterange
+        }
       end
     end
   end

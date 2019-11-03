@@ -19,10 +19,10 @@ RSpec.describe 'transactions.create_theater_performance' do
   it 'succeed' do
     expect(create_performance).to be_success
 
-    performance = TheaterApp::Main::Container['core.repositories.theater_performances_repo'].by_id(attrs[:id])
+    performance = TheaterApp::Main::Container['repositories.theater_performances_repo'].by_id(attrs[:id])
 
     expect(performance).to be
-    expect(performance.schedule).to be
+    expect(performance.duration).to be
   end
 
   context 'when invalid attrs' do

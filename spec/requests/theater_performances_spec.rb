@@ -58,12 +58,21 @@ RSpec.describe 'Theater Performances', type: :request do
   end
 
   describe 'Deleting a performance' do
-    let! :theater_performance do
-      Factory[:theater_performance, id: 2]
+    let(:attrs) do
+      {
+        id: 2,
+        name: 'Name',
+        start_date: 1.day.from_now,
+        end_date: 1.week.from_now
+      }
+    end
+
+    before do
+      post_json 'theater_performances', data: attrs
     end
 
     subject do
-      delete_json "theater_performances/#{theater_performance[:id]}"
+      delete_json "theater_performances/#{attrs[:id]}"
     end
 
     it { is_expected.to be_empty }

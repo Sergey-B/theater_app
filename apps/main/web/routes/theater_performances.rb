@@ -6,7 +6,7 @@ module TheaterApp
       route 'theater_performances' do |r|
         r.is do
           r.get do
-            r.resolve 'core.repositories.theater_performances_repo' do |theater_performances|
+            r.resolve 'repositories.theater_performances_repo' do |theater_performances|
               { data: theater_performances.listing }
             end
           end

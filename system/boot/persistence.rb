@@ -12,11 +12,12 @@ TheaterApp::Container.boot :persistence, namespace: true do |system|
 
     Sequel.database_timezone = :utc
     Sequel.application_timezone = :local
+    Sequel.extension(:core_extensions, :pg_range, :pg_range_ops)
 
     rom_config = ROM::Configuration.new(
       :sql,
       system[:settings].database_url,
-      extensions: %i[error_sql pg_array pg_json]
+      extensions: %i[error_sql pg_array pg_json pg_range]
     )
 
     rom_config.plugin :sql, relations: :instrumentation do |plugin_config|
@@ -32,6 +33,9 @@ TheaterApp::Container.boot :persistence, namespace: true do |system|
   start do
     config = container['persistence.config']
     config.auto_registration system.root.join('lib/persistence')
+
+    db = container['persistence.db']
+    db.register_range_type(:datetime)
 
     register 'rom', ROM.container(config)
   end
