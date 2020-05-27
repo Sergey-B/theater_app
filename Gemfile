@@ -28,7 +28,7 @@ gem 'dry-validation', '~> 0.11'
 gem 'dry-view', '~> 0.7'
 gem 'slim'
 
-gem 'activesupport', '~> 5.0.0'
+gem 'activesupport', '~> 5.2.4'
 gem 'shotgun'
 
 group :development, :test do
